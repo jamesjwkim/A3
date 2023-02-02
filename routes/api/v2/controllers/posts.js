@@ -18,7 +18,7 @@ router.post('/', async function(req, res, next) {
         
         await newPost.save()
     
-        res.send("Success!")
+        res.json({"status":"success"})
         //res.status(500).json({"status": "Success", "error": err})
         } catch(err) {
             console.log(err)
