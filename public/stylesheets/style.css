@@ -1,40 +1,19 @@
 body {
-  padding: 0 50px 0 50px;
+  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-nav.navbar {
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width:80%
-}
-
-h1{
-  margin-top: 70px;
 }
 
 a {
   color: #00B7FF;
 }
 
-/* personal changes for creative component */
-
-body {
-  text-align: center;
+#posts_box{
+  display: flex;
+  flex-wrap: wrap;
 }
 
-img {
-  width: 150px;
-  height: 150px;
-}
-
-p {
-  margin: 20px
-}
-
-.align {
-  border: 2px solid;
-  max-width: 400px;
-  margin: auto;
-  margin-top: 20px
+.post{
+  width:300px;
+  margin:5px;
+  border: solid 1px;
 }

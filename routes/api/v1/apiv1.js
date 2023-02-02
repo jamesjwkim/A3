@@ -9,6 +9,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/urls/preview', async function(req,res,next) {
+  try {
+
     let url = req.query.url
 
     //get contents of the url/html
@@ -68,6 +70,10 @@ router.get('/urls/preview', async function(req,res,next) {
 
     res.type("html")
     res.send(responseHtml)
+  } catch(err) {
+    res.type("html")
+    res.send("<p>" + err + "</p>")
+  }
 
 
 

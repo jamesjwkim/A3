@@ -7,3 +7,26 @@ Added the html response (the result) to the center of the page and included them
 This way, the contents of the web is scaled to the center when the page is minimized horizontally.
 I also added some minor margins around the link and the paragraph texts. This is so that the contents have some space between them.
 
+/*
+let allPosts = await req.models.Post.find()
+    console.log("print allPosts")
+    console.log(allPosts)
+
+    let allurls = []
+    let urlPosts = allPosts.map(async post =>{
+        console.log(post.url)
+        allurls.push(post.url)
+
+
+    })
+
+    console.log(allurls)
+
+    let finalJSON=""
+
+    for(let i = 0; i< allurls.length; i++){
+        finalJSON += await getURLPreview(allurls[i]) 
+    }
+
+    res.json(finalJSON)
+*/
