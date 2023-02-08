@@ -2,6 +2,15 @@ import fetch from 'node-fetch';
 
 import parser from 'node-html-parser';
 
+const escapeHTML = str => String(str).replace(/[&<>'"]/g, 
+    tag => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+    }[tag]));
+
 async function getURLPreview(url){
   // TODO: Copy from your code for making url previews in A2 to make this 
   // a function that takes a url and returns an html string with a preview of that html
@@ -61,7 +70,8 @@ async function getURLPreview(url){
     if(metaDesc != null) {
       let descName = metaDesc.getAttribute("content");
       console.log(descName)
-      responseHtml += "<p>" + descName + "</p>" + "</div>"
+      //escapeHTML(descName)
+      responseHtml += "<p>" + escapeHTML(descName) + "</p>" + "</div>"
     }
 
     return responseHtml

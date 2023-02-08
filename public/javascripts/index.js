@@ -40,6 +40,19 @@ async function postUrl(){
     loadPosts();
 }
 
+/*
+const escapeHTML = str => String(str).replace(/["]/g, 
+    tag => ({
+        
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+    }[tag]));
+*/
+
+
 
 let lastTypedUrl = ""
 let lastTypedTime = Date.now();
@@ -74,6 +87,7 @@ async function previewUrl(){
                 let previewHtml = await response.text()
                 if(url == lastURLPreviewed){
                     document.getElementById("url_previews").innerHTML = previewHtml;
+                    //document.getElementById("url_previews").innerHTML = previewHtml;
                 }
             }catch(error){
                 document.getElementById("url_previews").innerHTML = "There was an error: " + error;
