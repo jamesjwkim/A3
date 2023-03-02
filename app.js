@@ -14,8 +14,8 @@ const appSettings = {
         clientSecret:  "PVl8Q~pM0v3FXDkUpsGcKjNN0EG0LFJVGJlbVbMb"
     },	
     authRoutes: {
-        redirect: "https://www.jinwookima4.me/redirect", //note: you can explicitly make this "localhost:3000/redirect" or "examplesite.me/redirect"
-        //redirect: "http://localhost:3000/redirect",
+        //redirect: "https://www.jinwookima4.me/redirect", //note: you can explicitly make this "localhost:3000/redirect" or "examplesite.me/redirect"
+        redirect: "http://localhost:3000/redirect",
         error: "/error", // the wrapper will redirect to this route in case of any error.
         unauthorized: "/unauthorized" // the wrapper will redirect to this route in case of unauthorized access attempt.
     }

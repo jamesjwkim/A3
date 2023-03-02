@@ -29,4 +29,11 @@ const commentSchema = new mongoose.Schema({
 
 models.Comment = mongoose.model('Comment', commentSchema)
 
+const userInfoSchema = new mongoose.Schema({
+    username: String,
+    favorite_song: String
+})
+
+models.UserInfo = mongoose.model('UserInfo', userInfoSchema)
+
 export default models

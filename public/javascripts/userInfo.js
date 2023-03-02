@@ -6,6 +6,22 @@ async function init(){
 async function saveUserInfo(){
     //TODO: do an ajax call to save whatever info you want about the user from the user table
     //see postComment() in the index.js file as an example of how to do this
+    document.getElementById("saveUserInfoStatus").innerHTML = "sending data..."
+    let userInfo = document.getElementById("userInfoInput").value;
+    const urlParams = new URLSearchParams(window.location.search);
+    const username1 = urlParams.get('user');
+
+    try{
+        await fetchJSON(`api/${apiVersion}/custom`, {
+            method: "POST",
+            body: {favorite_song: userInfo}
+        })
+    }catch(error){
+        document.getElementById("saveUserInfoStatus").innerText = "Error"
+        throw(error)
+    }
+    document.getElementById("userInfoInput").value = "";
+    document.getElementById("saveUserInfoStatus").innerHTML = "successfully saved."
 }
 
 async function loadUserInfo(){
@@ -21,6 +37,22 @@ async function loadUserInfo(){
     }
     
     //TODO: do an ajax call to load whatever info you want about the user from the user table
+    let userInfoDiv = document.getElementById("userInfo_previews");
+    let userInfoJSON = await fetchJSON(`api/${apiVersion}/custom?username=${username}`);
+    
+
+    
+    let userInfoHtml = userInfoJSON.map(givenInfo => {
+        return `
+        <div>
+            <p>${givenInfo.favorite_song}</p>
+        </div>
+        `
+    }).join(" ")
+
+
+    userInfoDiv.innerHTML = userInfoHtml;
+
 
     loadUserInfoPosts(username)
 }
